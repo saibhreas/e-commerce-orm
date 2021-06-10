@@ -1,0 +1,119 @@
+Get  Insomnia 
+
+Tags   Body empty 
+Preview:
+  [
+    {
+      "id"= 1,
+      "tag_name": "rock music",
+      "products" : [icon]
+    },
+    {
+      "id"= 2,
+      "tag_name": "pop music",
+      "products" : [
+        {
+          "id" : 4."product_name": "Top 40 Music Compilation Vynl Record",
+          "price" : 12.99,
+          "staock": 50,
+          "catagory_id":3,
+          "product_tag": {
+            "id": 10,
+            "product_id": 4,
+            "tag_id:2
+          }
+        }
+      ]
+    },
+    {
+      "id"= 3,
+      "tag_name": "ska music",
+      "products" : [
+        {
+          "id" : 4."product_name": "The Ska's The Limit ",
+          "price" : 19.72,
+          "staock": 10,
+          "catagory_id":3,
+          "product_tag": {
+            "id": 11,
+            "product_id": 11,
+            "tag_id:3
+          }
+        }
+      ]
+    },
+    
+  ]
+
+
+  Get Catagories:
+  Preview:
+    [
+      {
+        "id" : 1,
+        "catagory_name": "Shirts",
+        "products": [
+          {
+            "id" : 1,
+            "product_name": "Plain  T-shirt",
+            "price": 14.99,
+            "stock":14,
+            "catagory_id":1
+          }
+        ]
+      },
+      {
+        "id" : 2,
+        "catagory_name": "Shorts",
+        "products": [
+          {
+            "id" : 1,
+            "product_name": "Board Shorts",
+            "price": 14.99,
+            "stock":24,
+            "catagory_id":1
+          }
+        ]
+      },
+      {
+        "id" : 3,
+        "catagory_name": "Shoes",
+        "products": [
+          {
+            "id" : 1,
+            "product_name": "Water Shoe",
+            "price": 17.97,
+            "stock":60,
+            "catagory_id":1
+          }
+        ]
+      }
+    ]
+
+
+Get All Products:
+  [
+    {
+        "id" : 1,
+        "product_name": "Plain  T-shirt",
+        "price": 14.99,
+        "stock":14,
+        "catagory_id":1,
+        "catagory" :{
+          "id" : 1,
+          "catagory_name": "Shirts"
+        }
+    }
+    {
+        "id" : 2,
+        "product_name": "Running Shoes",
+        "price": 114.99,
+        "stock":50,
+        "catagory_id":5,
+        "catagory" :{
+          "id" : 5,
+          "catagory_name": "Shoes"
+        }
+    }
+  ]
+      
