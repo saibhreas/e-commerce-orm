@@ -27,11 +27,12 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+
     category_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references:{
-        model:"Category",
+        model:"category",
         key: "id"
       }
     },
