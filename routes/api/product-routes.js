@@ -4,7 +4,7 @@ const { Product, Category, Tag, ProductTag } = require("../../models");
 // The `/api/products` endpoint
 
 // get all products
-router.get("/", (req, res) => {
+router.get("/api/products", (req, res) => {
   Product.findAll({
     include: [{ model: Product }],
   })
@@ -18,21 +18,35 @@ router.get("/", (req, res) => {
 // find all products
   // be sure to include its associated Category and Tag data
 // get one product
-router.get("/:id", (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
-});
+router.get("/api/products:id", (req, res) => {
+  Product.findOne({
+      where: {
+        id: req.params.id,
+      },
+  
+      include: [{ model: Product }],
+    })
+      .then((product) => {
+        res.json(product);
+      })
+      .catch((err) => {
+        res.status(500).json(err);
+      });
+}); // find a single product by its `id`
+    // be sure to include its associated Category and Tag data
 
-// create new product
-router.post("/", (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
+
+    // create new product
+router.post("/api/products", (req, res) => {
+  return Product.create({
+    "product_name": "Basketball",
+    "price": 200.00,
+    "stock": 3,
+    "tagIds": [1, 2, 3, 4]
+    
+  });
+    
+  
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -56,7 +70,7 @@ router.post("/", (req, res) => {
 });
 
 // update product
-router.put("/:id", (req, res) => {
+router.put("/api/products:id", (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -97,7 +111,12 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/api/products:id", (req, res) => {
+  Product.destroy({
+    Where:{
+      id: req.params.id
+    }
+  })
   // delete one product by its `id` value
 });
 
