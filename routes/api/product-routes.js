@@ -74,12 +74,13 @@ router.put("/api/products:id", (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
-      id: req.params.id,
+      product_id: req.params.id,
     },
   })
     .then((product) => {
       // find all associated tags from ProductTag
-      return ProductTag.findAll({ where: { product_id: req.params.id } });
+      return ProductTag.findAll({ 
+        where: { product_id: req.params.id } });
     })
     .then((productTags) => {
       // get list of current tag_ids
@@ -114,7 +115,7 @@ router.put("/api/products:id", (req, res) => {
 router.delete("/api/products:id", (req, res) => {
   Product.destroy({
     Where:{
-      id: req.params.id
+      product_id: req.params.id
     }
   })
   // delete one product by its `id` value

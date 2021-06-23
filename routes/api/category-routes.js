@@ -18,7 +18,7 @@ router.get("/api/categories", (req, res) => {
 router.get("/api/categories:id", (req, res) => {
   Category.findOne({
     where: {
-      id: req.params.id
+      category_id: req.params.id
     }
   })
   .then((category) => {
@@ -42,7 +42,7 @@ router.put("/api/categories:id", (req, res) => {
   },
   {
     where: {
-    id: req.params.id
+    category_id: req.params.id
     }
   });   // update a category by its `id` value
 });
@@ -50,7 +50,7 @@ router.put("/api/categories:id", (req, res) => {
 router.delete("/api/categories:id", (req, res) => {
   Category.destroy({
     where: {
-      id: req.params.id 
+      category_id: req.params.id 
     }
   });// delete a category by its `id` value
 });
