@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 //TODO  find one category by its `id` value be sure to include its associated Products
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const tagData = await Category.findByPk(req.params.id, {
       include: [{model: Product }],
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
   }
 });
 //TODO:  create a new category
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const categoryData = await Category.create(req.body);
     res.status(200).json(categoryData);
@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 });
 
 //TODO: update a category by its `id` value
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const categoryData = await Category.update(req.body, {
       where: {
@@ -60,7 +60,7 @@ router.put('/:id', (req, res) => {
 });
 
 //TODO: delete a category by its `id` value
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const categoryData = await Category.destroy({
       where: {
