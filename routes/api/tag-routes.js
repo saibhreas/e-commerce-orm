@@ -15,10 +15,10 @@ router.get('/api/tags', (req, res) => {
 });// find all tags
 // be sure to include its associated Product data
 //TODO: find a single tag by its `id`   be sure to include its associated Product data 
-router.get('/api/tags:id', (req, res) => {
+router.get('/:id', (req, res) => {
   try {
-    const tagData = await Tag.findByPk(req.params.id, {
-      include: [{ model: Product, attributes: ['id', 'product_name', 'price', 'stock', 'category_id']}]
+    const tagData = await Tag.findByPk(req.params.id,{ 
+      include: [{ model: Product}],
     });
 
     if (!tagData) {
